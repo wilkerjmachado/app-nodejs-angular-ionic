@@ -1,9 +1,15 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
+require('./db/connect');
 
 const index = require('./routes/index');
 const clienteRoute = require('./routes/cliente');
 const produtoRoute = require('./routes/produto');
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 app.use('/', index);
 app.use('/cliente', clienteRoute);
