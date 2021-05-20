@@ -1,4 +1,4 @@
-export class Entidade {
+export interface Entidade {
 
   id: number
 

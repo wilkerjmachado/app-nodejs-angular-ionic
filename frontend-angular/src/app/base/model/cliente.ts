@@ -1,6 +1,6 @@
 import {Entidade} from "./entidade";
 
-export class Cliente extends Entidade {
+export interface Cliente extends Entidade {
 
   codigo: string
 

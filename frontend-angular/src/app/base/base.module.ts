@@ -8,6 +8,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "../app-routing.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ClienteService} from "./service/cliente.service";
+import {ProdutoService} from "./service/produto.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [],
@@ -16,6 +19,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     BrowserAnimationsModule,
     CommonModule,
+    HttpClientModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
@@ -24,11 +28,19 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   ],
   exports: [
     CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
     MatGridListModule
+  ],
+  providers: [
+    ClienteService,
+    ProdutoService
   ]
 })
 export class BaseModule { }

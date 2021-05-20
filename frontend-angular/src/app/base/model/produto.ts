@@ -1,6 +1,6 @@
 import {Entidade} from "./entidade";
 
-export class Produto extends Entidade {
+export interface Produto extends Entidade {
 
   codigo: string
 
