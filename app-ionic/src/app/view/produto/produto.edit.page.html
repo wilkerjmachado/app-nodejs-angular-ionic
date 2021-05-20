@@ -1,12 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Produto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <form [formGroup]="produtoForm">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="stacked">Código</ion-label>
+        <ion-input [(ngModel)]="produto.codigo" formControlName="codigo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input [(ngModel)]="produto.nome" formControlName="nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fabricação</ion-label>
+        <ion-input [(ngModel)]="produto.fabricacao" formControlName="fabricacao"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Tamanho</ion-label>
+        <ion-input [(ngModel)]="produto.tamanho" formControlName="tamanho"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Valor</ion-label>
+        <ion-input [(ngModel)]="produto.valor" formControlName="valor"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button expand="block" (click)="salvar()">Salvar</ion-button>
+
+  </form>
 
 </ion-content>

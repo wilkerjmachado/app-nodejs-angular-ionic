@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Produto} from "../../model/produto";
+import {ProdutoService} from "../../service/produto.service";
 
 @Component({
   selector: 'app-produto',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoListPage implements OnInit {
 
-  constructor() { }
+  lista : Array<Produto>
 
-  ngOnInit() {
+  constructor(private service: ProdutoService) { }
+
+  async ngOnInit() {
+
+    this.lista = await this.service.getAll()
   }
 
 }

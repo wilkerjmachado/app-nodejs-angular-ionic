@@ -10,11 +10,11 @@ const routes: Routes = [
     component: ProdutoListPage
   },
   {
-    path: '/:id',
+    path: ':id',
     component: ProdutoEditPage
   },
   {
-    path: '/novo',
+    path: 'novo',
     component: ProdutoEditPage
   }
 ];

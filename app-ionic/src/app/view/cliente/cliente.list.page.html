@@ -9,9 +9,43 @@
 
 <ion-content>
 
-  <pre>{{lista | json}}</pre>
+  <ion-grid>
 
+    <ion-row *ngFor="let cliente of lista">
 
+      <ion-col>
+
+        <ion-card [routerLink]="cliente._id">
+
+          <ion-card-content>
+
+            <ion-row>
+              <ion-col size="12">
+                <ion-label><b>Código:</b> {{cliente.codigo}} </ion-label>
+              </ion-col>
+              <ion-col size="12">
+                <ion-label><b>Nome:</b> {{cliente.nome}} </ion-label>
+              </ion-col>
+              <ion-col size="12">
+                <ion-label><b>Sexo:</b> {{cliente.sexo}} </ion-label>
+              </ion-col>
+              <ion-col size="12">
+                <ion-label><b>CPF:</b> {{cliente.cpf}} </ion-label>
+              </ion-col>
+              <ion-col size="12">
+                <ion-label><b>E-mail:</b> {{cliente.email}} </ion-label>
+              </ion-col>
+            </ion-row>
+
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="novo">
