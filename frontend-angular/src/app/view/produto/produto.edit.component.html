@@ -30,24 +30,28 @@
 
         <mat-form-field class="full-width">
           <mat-label>Tamanho</mat-label>
-          <input matInput [(ngModel)]="produto.tamanho" formControlName="tamanho">
+          <input matInput type="number" [(ngModel)]="produto.tamanho" formControlName="tamanho">
         </mat-form-field>
 
       </div>
 
       <div fxLayout="column" fxFlex="40%" class="content-input">
 
-        <mat-form-field class="full-width">
+        <mat-form-field  class="full-width">
           <mat-label>Fabricação</mat-label>
-          <input matInput [(ngModel)]="produto.fabricacao" formControlName="fabricacao">
+          <mat-select [(ngModel)]="produto.fabricacao" formControlName="fabricacao">
+            <mat-option value="nacional">Nacional</mat-option>
+            <mat-option value="importado">Importado</mat-option>
+          </mat-select>
         </mat-form-field>
+
       </div>
 
       <div fxLayout="column" fxFlex="30%" class="content-input">
 
         <mat-form-field class="full-width">
           <mat-label>Valor</mat-label>
-          <input matInput [(ngModel)]="produto.valor" formControlName="valor">
+          <input matInput [(ngModel)]="produto.valor" formControlName="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }">
         </mat-form-field>
 
       </div>
@@ -58,7 +62,7 @@
 
       <button mat-raised-button routerLink="/produto"> Voltar</button>
 
-      <button mat-raised-button [disabled]="produtoForm.invalid" (click)="salvar()"> Salvar </button>
+      <button mat-raised-button [disabled]="produtoForm.invalid" (click)="salvar()" class="margin-left-10"> Salvar </button>
 
     </div>
 

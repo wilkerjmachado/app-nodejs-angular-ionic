@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ClienteService} from "../../base/service/cliente.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Cliente} from "../../base/model/cliente";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AlertaComponent} from "../../base/componentes/alerta/alerta.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-cliente-edit',
@@ -16,6 +18,8 @@ export class ClienteEditComponent implements OnInit {
   clienteForm :FormGroup;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
+              private dialog: MatDialog,
               private service: ClienteService) {
 
     this.clienteForm = new FormGroup({
@@ -39,22 +43,29 @@ export class ClienteEditComponent implements OnInit {
       await this.service.inserir(this.cliente)
 
     }
+
+    const dialogRef = this.dialog.open(AlertaComponent, {
+      data: {
+        texto: 'Cliente salvo com sucesso!',
+        habilitarBtnConfirmar : false
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+
+      this.router.navigate(['/cliente'])
+
+    });
+
   }
 
   async ngOnInit() {
 
-    try {
+    const id = this.route.snapshot.params.id;
 
-      const id = this.route.snapshot.params.id;
+    if(id){
 
-      if(id){
-
-        this.cliente = await this.service.getById(id);
-
-      }
-
-    } catch (e) {
-
+      this.cliente = await this.service.getById(id);
 
     }
 

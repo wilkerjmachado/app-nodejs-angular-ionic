@@ -8,7 +8,7 @@
 
         <mat-form-field class="full-width">
           <mat-label>Código</mat-label>
-          <input matInput type="number" [(ngModel)]="cliente.codigo" formControlName="codigo">
+          <input matInput type="number" [(ngModel)]="cliente.codigo" formControlName="codigo" maxlength="30">
         </mat-form-field>
 
       </div>
@@ -17,16 +17,20 @@
 
         <mat-form-field class="full-width">
           <mat-label>Nome</mat-label>
-          <input matInput [(ngModel)]="cliente.nome" formControlName="nome">
+          <input matInput [(ngModel)]="cliente.nome" formControlName="nome" maxlength="255">
         </mat-form-field>
 
       </div>
 
       <div fxLayout="column" fxFlex="30%" class="content-input">
 
-        <mat-form-field class="full-width">
+        <mat-form-field  class="full-width">
           <mat-label>Sexo</mat-label>
-          <input matInput [(ngModel)]="cliente.sexo" formControlName="sexo">
+          <mat-select  [(ngModel)]="cliente.sexo" formControlName="sexo">
+            <mat-option value="feminino">Feminino</mat-option>
+            <mat-option value="masculino">Masculino</mat-option>
+            <mat-option value="outros">Outros</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
 
@@ -38,7 +42,7 @@
 
         <mat-form-field class="full-width">
           <mat-label>CPF</mat-label>
-          <input matInput [(ngModel)]="cliente.cpf" formControlName="cpf">
+          <input matInput [(ngModel)]="cliente.cpf" formControlName="cpf" mask="000.000.000-00">
         </mat-form-field>
 
       </div>
@@ -47,7 +51,7 @@
 
         <mat-form-field class="full-width">
           <mat-label>Email</mat-label>
-          <input matInput type="email" [(ngModel)]="cliente.email" formControlName="email">
+          <input matInput type="email" [(ngModel)]="cliente.email" formControlName="email" maxlength="255">
         </mat-form-field>
 
       </div>
@@ -58,7 +62,7 @@
 
       <button mat-raised-button routerLink="/cliente"> Voltar</button>
 
-      <button mat-raised-button [disabled]="clienteForm.invalid" (click)="salvar()"> Salvar </button>
+      <button mat-raised-button [disabled]="clienteForm.invalid" (click)="salvar()" class="margin-left-10"> Salvar </button>
 
     </div>
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProdutoService} from "../../base/service/produto.service";
+import {AlertaComponent} from "../../base/componentes/alerta/alerta.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-produto-edit',
@@ -15,6 +17,8 @@ export class ProdutoEditComponent implements OnInit {
   produtoForm :FormGroup;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
+              private dialog: MatDialog,
               private service: ProdutoService) {
 
     this.produtoForm = new FormGroup({
@@ -38,22 +42,29 @@ export class ProdutoEditComponent implements OnInit {
       await this.service.inserir(this.produto)
 
     }
+
+    const dialogRef = this.dialog.open(AlertaComponent, {
+      data: {
+        texto: 'Produto salvo com sucesso!',
+        habilitarBtnConfirmar : false
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+
+      this.router.navigate(['/produto'])
+
+    });
+
   }
 
   async ngOnInit() {
 
-    try {
+    const id = this.route.snapshot.params.id;
 
-      const id = this.route.snapshot.params.id;
+    if(id){
 
-      if(id){
-
-        this.produto = await this.service.getById(id);
-
-      }
-
-    } catch (e) {
-
+      this.produto = await this.service.getById(id);
 
     }
 

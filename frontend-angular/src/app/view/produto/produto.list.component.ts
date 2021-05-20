@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ProdutoService} from "../../base/service/produto.service";
 import {Produto} from "../../base/model/produto";
+import {AlertaComponent} from "../../base/componentes/alerta/alerta.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-produto-list',
@@ -21,13 +23,32 @@ export class ProdutoListComponent implements OnInit {
 
   mostrarColunas: string[] = ['codigo', 'nome', 'fabricacao', 'tamanho', 'valor', 'acao'];
 
-  constructor(private service: ProdutoService) { }
+  constructor(
+    private service: ProdutoService,
+    private dialog: MatDialog
+  ) { }
 
   async excluir(id: string){
 
-    await this.service.excluir(id)
+    const dialogRef = this.dialog.open(AlertaComponent, {
+      data: {
+        texto: 'Confirma a exclusão do registro?',
+        labelBtnFechar : 'Não',
+        labelBtnConfirmar : 'Sim',
+        habilitarBtnConfirmar : true
+      }
+    });
 
-    this.lista = await this.service.getAll()
+    dialogRef.afterClosed().subscribe(async result => {
+
+      if(result){
+
+        await this.service.excluir(id)
+
+        this.lista = await this.service.getAll()
+      }
+
+    });
 
   }
 

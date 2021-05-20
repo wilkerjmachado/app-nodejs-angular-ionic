@@ -18,9 +18,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatSelectModule} from "@angular/material/select";
+import {NgxMaskModule} from "ngx-mask";
+import { NgxCurrencyModule } from "ngx-currency";
+import {AlertaComponent} from "./componentes/alerta/alerta.component";
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AlertaComponent
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -30,6 +36,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     CommonModule,
     HttpClientModule,
     FlexLayoutModule,
+    NgxMaskModule.forRoot(),
+    NgxCurrencyModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
@@ -39,7 +47,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   exports: [
     FormsModule,
@@ -50,6 +59,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
+    NgxMaskModule,
+    NgxCurrencyModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
@@ -59,7 +70,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    AlertaComponent
   ],
   providers: [
     ClienteService,
