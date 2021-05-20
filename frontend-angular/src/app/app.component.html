@@ -1,5 +1,16 @@
-<p>
-  <mat-toolbar>
-    <span>{{title}}</span>
-  </mat-toolbar>
-</p>
+<mat-toolbar>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{title}}</span>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="cliente">
+    <span>Clientes</span>
+  </button>
+  <button mat-menu-item routerLink="produto">
+    <span>Produtos</span>
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>

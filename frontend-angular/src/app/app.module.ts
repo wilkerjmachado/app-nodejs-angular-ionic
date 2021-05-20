@@ -1,20 +1,19 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from "@angular/material/toolbar";
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {BaseModule} from "./base/base.module";
+import {ProdutoModule} from "./view/produto/produto.module";
+import {ClienteModule} from "./view/cliente/cliente.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule
+    BaseModule,
+    ProdutoModule,
+    ClienteModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
