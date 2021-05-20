@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col size="12">
+        <ion-card>
+          <ion-item class="ion-activated" routerLink="/cliente">
+            <ion-icon name="people" slot="start"></ion-icon>
+            <ion-label>Clientes</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-card>
+          <ion-item class="ion-activated" routerLink="/produto">
+            <ion-icon name="cube" slot="start"></ion-icon>
+            <ion-label>Produtos</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

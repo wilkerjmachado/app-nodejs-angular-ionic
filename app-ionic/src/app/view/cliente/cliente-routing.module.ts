@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ClientePage } from './cliente.page';
+import { ClienteEditPage } from './cliente.edit.page';
+import {ClienteListPage} from "./cliente.list.page";
 
 const routes: Routes = [
   {
     path: '',
-    component: ClientePage
+    component: ClienteListPage
+  },
+  {
+    path: ':id',
+    component: ClienteEditPage
+  },
+  {
+    path: 'novo',
+    component: ClienteEditPage
   }
 ];
 
