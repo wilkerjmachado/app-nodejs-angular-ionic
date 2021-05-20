@@ -15,15 +15,21 @@ import {MatTableModule} from "@angular/material/table";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
@@ -32,14 +38,18 @@ import {MatInputModule} from "@angular/material/input";
     MatTableModule,
     MatTooltipModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
@@ -48,7 +58,8 @@ import {MatInputModule} from "@angular/material/input";
     MatTableModule,
     MatTooltipModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     ClienteService,

@@ -1,7 +1,67 @@
 <div class="container">
 
-  <div fxLayout="row" class="margin-bottom-10">
+  <form class="example-form" [formGroup]="produtoForm">
 
-  </div>
+    <div fxLayout="row" class="margin-bottom-10">
+
+      <div  fxLayout="column" fxFlex="30%" class="content-input">
+
+        <mat-form-field class="full-width">
+          <mat-label>Código</mat-label>
+          <input matInput type="number" [(ngModel)]="produto.codigo" formControlName="codigo">
+        </mat-form-field>
+
+      </div>
+
+      <div fxLayout="column" fxFlex="70%" class="content-input">
+
+        <mat-form-field class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="produto.nome" formControlName="nome">
+        </mat-form-field>
+
+      </div>
+
+    </div>
+
+    <div fxLayout="row" class="margin-bottom-10">
+
+      <div fxLayout="column" fxFlex="30%" class="content-input">
+
+        <mat-form-field class="full-width">
+          <mat-label>Tamanho</mat-label>
+          <input matInput [(ngModel)]="produto.tamanho" formControlName="tamanho">
+        </mat-form-field>
+
+      </div>
+
+      <div fxLayout="column" fxFlex="40%" class="content-input">
+
+        <mat-form-field class="full-width">
+          <mat-label>Fabricação</mat-label>
+          <input matInput [(ngModel)]="produto.fabricacao" formControlName="fabricacao">
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="column" fxFlex="30%" class="content-input">
+
+        <mat-form-field class="full-width">
+          <mat-label>Valor</mat-label>
+          <input matInput [(ngModel)]="produto.valor" formControlName="valor">
+        </mat-form-field>
+
+      </div>
+
+    </div>
+
+    <div fxLayout="row">
+
+      <button mat-raised-button routerLink="/produto"> Voltar</button>
+
+      <button mat-raised-button [disabled]="produtoForm.invalid" (click)="salvar()"> Salvar </button>
+
+    </div>
+
+  </form>
 
 </div>

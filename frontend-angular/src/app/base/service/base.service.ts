@@ -34,9 +34,9 @@ export abstract class BaseService<T extends Entidade> {
     return this.http.post<any>(this.url(), entidade, this.options()).toPromise();
   }
 
-  alterar(entidade: T): Promise<any>{
+  alterar(entidade: T, id: string): Promise<any>{
 
-    return this.http.put<any>(this.url(), entidade, this.options()).toPromise();
+    return this.http.put<any>(this.url(`${id}`), entidade, this.options()).toPromise();
   }
 
   excluir(id: string): Promise<any>{

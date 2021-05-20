@@ -20,3 +20,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 table{
   width: 100%;
 }
+
+.full-width{
+  width: 100%;
+}
+
+.example-form{
+  padding: 20px;
+
+  .content-input{
+    padding: 5px;
+  }
+}

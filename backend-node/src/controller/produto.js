@@ -47,7 +47,7 @@ exports.put = (req, res, next) => {
 exports.delete = (req, res, next) => {
 
     dbProduto.findByIdAndRemove(req.params.id).then((person) => {
-        res.status(200).send('Apagado com sucesso!');
+        res.status(200).send({msg: 'Apagado com sucesso!'});
     }).catch(err => console.error.bind(console, `Error ${err}`))
 
 };
