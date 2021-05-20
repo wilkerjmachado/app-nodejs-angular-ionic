@@ -39,7 +39,7 @@ export abstract class BaseService<T extends Entidade> {
     return this.http.put<any>(this.url(), entidade, this.options()).toPromise();
   }
 
-  excluir(id: number): Promise<any>{
+  excluir(id: string): Promise<any>{
 
     return this.http.delete<any>(this.url(`${id}`), this.options()).toPromise();
   }

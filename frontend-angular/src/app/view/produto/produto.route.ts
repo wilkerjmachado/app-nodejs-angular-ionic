@@ -16,5 +16,12 @@ export const PRODUTO_ROUTE: Routes = [
 
     component: ProdutoEditComponent,
 
+  },
+
+  {
+    path: 'produto/novo',
+
+    component: ProdutoEditComponent,
+
   }
 ];

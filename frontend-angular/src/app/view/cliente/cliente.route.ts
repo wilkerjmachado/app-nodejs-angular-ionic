@@ -16,5 +16,12 @@ export const CLIENTE_ROUTE: Routes = [
 
     component: ClienteEditComponent,
 
+  },
+
+  {
+    path: 'cliente/novo',
+
+    component: ClienteEditComponent,
+
   }
 ];

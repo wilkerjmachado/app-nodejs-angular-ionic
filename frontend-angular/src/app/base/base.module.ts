@@ -11,6 +11,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ClienteService} from "./service/cliente.service";
 import {ProdutoService} from "./service/produto.service";
 import {HttpClientModule} from "@angular/common/http";
+import {MatTableModule} from "@angular/material/table";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [],
@@ -24,7 +28,11 @@ import {HttpClientModule} from "@angular/common/http";
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatInputModule
   ],
   exports: [
     CommonModule,
@@ -36,7 +44,11 @@ import {HttpClientModule} from "@angular/common/http";
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [
     ClienteService,

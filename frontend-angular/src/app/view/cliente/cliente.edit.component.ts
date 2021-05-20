@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ClienteService} from "../../base/service/cliente.service";
+import {ActivatedRoute} from "@angular/router";
+import {Cliente} from "../../base/model/cliente";
 
 @Component({
   selector: 'app-cliente-edit',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteEditComponent implements OnInit {
 
-  constructor() { }
+  cliente: any = {}
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute,
+              private service: ClienteService) {
+  }
+
+  async ngOnInit() {
+
+    try {
+
+      const id = this.route.snapshot.params.id;
+
+      if(id){
+
+        this.cliente = await this.service.getById(id);
+
+      }
+
+    } catch (e) {
+
+
+    }
+
   }
 
 }

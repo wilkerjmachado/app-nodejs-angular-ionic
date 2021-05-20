@@ -1,1 +1,46 @@
-<p>produto.list works!</p>
+<div class="container">
+
+  <div fxLayout="row" class="margin-bottom-10">
+    <button mat-raised-button routerLink="/produto/novo"> Novo Produto </button>
+  </div>
+
+  <div fxLayout="row">
+
+    <table mat-table [dataSource]="lista" class="mat-elevation-z8">
+
+      <ng-container [matColumnDef]="coluna.attr" *ngFor="let coluna of colunas">
+
+        <th mat-header-cell *matHeaderCellDef> {{coluna.titulo}} </th>
+
+        <td mat-cell *matCellDef="let item"> {{item[coluna.attr]}} </td>
+
+      </ng-container>
+
+      <ng-container matColumnDef="acao" >
+
+        <th mat-header-cell *matHeaderCellDef> Ação </th>
+
+        <td mat-cell *matCellDef="let item">
+
+          <button mat-icon-button matTooltip="Editar" routerLink="/produto/{{item._id}}">
+            <mat-icon>mode_edit</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="Excluir" (click)="excluir(item._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="mostrarColunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: mostrarColunas;"></tr>
+
+    </table>
+
+  </div>
+
+</div>
+
+
