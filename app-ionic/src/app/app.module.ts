@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouteReuseStrategy} from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ClienteService} from "./service/cliente.service";
 import {ProdutoService} from "./service/produto.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgxMaskIonicModule} from "ngx-mask-ionic";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    NgxMaskIonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

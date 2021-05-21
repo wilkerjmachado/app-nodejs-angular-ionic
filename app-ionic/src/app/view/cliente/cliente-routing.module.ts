@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ClienteListPage
   },
   {
-    path: ':id',
+    path: 'editar/:id',
     component: ClienteEditPage
   },
   {

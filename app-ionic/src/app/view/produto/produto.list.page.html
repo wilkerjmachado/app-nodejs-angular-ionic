@@ -15,7 +15,7 @@
 
       <ion-col>
 
-        <ion-card [routerLink]="produto._id">
+        <ion-card>
 
           <ion-card-content>
 
@@ -33,7 +33,16 @@
                 <ion-label><b>Tamanho:</b> {{produto.tamanho}} </ion-label>
               </ion-col>
               <ion-col size="12">
-                <ion-label><b>Valor:</b> {{produto.valor}} </ion-label>
+                <ion-label><b>Valor:</b> {{produto.valor | currency:'BRL':true:'1.2-2'}} </ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-button expand="block" routerLink="editar/{{produto._id}}">Editar</ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button expand="block" (click)="excluir(produto)">Excluir</ion-button>
               </ion-col>
             </ion-row>
 

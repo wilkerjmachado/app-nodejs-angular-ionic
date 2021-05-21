@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProdutoService} from "../../service/produto.service";
+import {AlertController} from "@ionic/angular";
 
 @Component({
   selector: 'app-produto',
@@ -14,8 +15,12 @@ export class ProdutoEditPage implements OnInit {
 
   produtoForm :FormGroup;
 
-  constructor(private route: ActivatedRoute,
-              private service: ProdutoService) {
+  constructor(
+    private route: ActivatedRoute,
+    private service: ProdutoService,
+    private router: Router,
+    private alertController: AlertController
+  ) {
 
     this.produtoForm = new FormGroup({
       codigo: new FormControl('', Validators.required),
@@ -38,22 +43,25 @@ export class ProdutoEditPage implements OnInit {
       await this.service.inserir(this.produto)
 
     }
+
+    const alert = await this.alertController.create({
+      header: 'Alerta',
+      message: 'Produto salvo com sucesso!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    this.router.navigate(['/produto'])
   }
 
   async ngOnInit() {
 
-    try {
+    const id = this.route.snapshot.params.id;
 
-      const id = this.route.snapshot.params.id;
+    if(id){
 
-      if(id){
-
-        this.produto = await this.service.getById(id);
-
-      }
-
-    } catch (e) {
-
+      this.produto = await this.service.getById(id);
 
     }
 

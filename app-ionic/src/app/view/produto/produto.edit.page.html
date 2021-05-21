@@ -15,7 +15,7 @@
 
       <ion-item>
         <ion-label position="stacked">Código</ion-label>
-        <ion-input [(ngModel)]="produto.codigo" formControlName="codigo"></ion-input>
+        <ion-input type="number" [(ngModel)]="produto.codigo" formControlName="codigo"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -25,12 +25,15 @@
 
       <ion-item>
         <ion-label position="stacked">Fabricação</ion-label>
-        <ion-input [(ngModel)]="produto.fabricacao" formControlName="fabricacao"></ion-input>
+        <ion-select [(ngModel)]="produto.fabricacao" formControlName="fabricacao" okText="OK" cancelText="Cancelar">
+          <ion-select-option value="nacional">Nacional</ion-select-option>
+          <ion-select-option value="importado">Importado</ion-select-option>
+        </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Tamanho</ion-label>
-        <ion-input [(ngModel)]="produto.tamanho" formControlName="tamanho"></ion-input>
+        <ion-input type="number" [(ngModel)]="produto.tamanho" formControlName="tamanho"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -40,7 +43,7 @@
 
     </ion-list>
 
-    <ion-button expand="block" (click)="salvar()">Salvar</ion-button>
+    <ion-button expand="block" [disabled]="produtoForm.invalid" (click)="salvar()">Salvar</ion-button>
 
   </form>
 
