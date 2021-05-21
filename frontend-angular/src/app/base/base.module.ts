@@ -10,7 +10,7 @@ import {AppRoutingModule} from "../app-routing.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ClienteService} from "./service/cliente.service";
 import {ProdutoService} from "./service/produto.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatDialogModule} from "@angular/material/dialog";
@@ -22,6 +22,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {NgxMaskModule} from "ngx-mask";
 import { NgxCurrencyModule } from "ngx-currency";
 import {AlertaComponent} from "./componentes/alerta/alerta.component";
+import {ErroHttpInterceptor} from "./interceptor/erro-http.interceptor";
 
 @NgModule({
   declarations: [
@@ -76,7 +77,12 @@ import {AlertaComponent} from "./componentes/alerta/alerta.component";
   ],
   providers: [
     ClienteService,
-    ProdutoService
+    ProdutoService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErroHttpInterceptor,
+      multi: true
+    },
   ]
 })
 export class BaseModule { }

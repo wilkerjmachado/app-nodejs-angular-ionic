@@ -24,8 +24,6 @@ export const CLIENTE_ROUTE: Routes = [
 
     component: ClienteEditComponent,
 
-  },
-
-  { path: '**', component: PaginaNaoEncontradaComponent }
+  }
 
 ];
