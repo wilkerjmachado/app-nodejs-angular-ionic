@@ -1,9 +1,9 @@
-#### Frontend - Angular 12
+#### Backend - Node.js + Express + Mongo 
 
 ## Requisitos
 * Node v14.17.0
 * NPM
-* Angular CLI 12.0.1
+* Mongo
 
 ## Instalando
 ```bash
@@ -12,7 +12,7 @@ npm i
 
 ## Iniciando aplicação
 ```bash
-ng serve
+npm start
 ```
 
 ## Autor
