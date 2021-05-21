@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  client:
+    build: ./frontend-angular
+    ports:
+      - "80:4200"
+  server:
+    build: ./backend-node
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://database/app
+    links:
+      - database
+    depends_on:
+      - database
+  database:
+    image: mongo
+    restart: always
+    volumes:
+      - "/data/db:/data/db"
+    ports:
+      - "27017:27017"
