@@ -82,7 +82,7 @@ import {ErroHttpInterceptor} from "./interceptor/erro-http.interceptor";
       provide: HTTP_INTERCEPTORS,
       useClass: ErroHttpInterceptor,
       multi: true
-    },
+    }
   ]
 })
 export class BaseModule { }
