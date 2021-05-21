@@ -4,7 +4,10 @@ var Schema = mongoose.Schema;
 var produtoSchema = new Schema({
     codigo: String,
     nome: String,
-    fabricacao: String,
+    fabricacao: {
+        type: String,
+        enum : ['nacional','importado']
+    },
     tamanho: Number,
     valor: Number
 });

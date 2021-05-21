@@ -5,7 +5,10 @@ var clienteSchema = new Schema({
     codigo: String,
     nome: String,
     cpf: String,
-    sexo: String,
+    sexo: {
+        type: String,
+        enum : ['feminino','masculino', 'outros']
+    },
     email: String
 });
 

@@ -5,7 +5,7 @@ exports.get = (req, res, next) => {
     dbCliente.find()
         .then((cliente) => {
             res.status(200).send(cliente);
-        }).catch(err => res.status(500).send(err))
+        }).catch(err => res.status(500).send({message: 'Erro ao obter lista de clientes', erro: err}))
 };
 
 exports.getById = (req, res, next) => {
@@ -13,7 +13,7 @@ exports.getById = (req, res, next) => {
     dbCliente.findById(req.params.id)
         .then((person) => {
             res.status(200).send(person);
-        }).catch(err => res.status(500).send(err))
+        }).catch(err => res.status(500).send({message: 'Erro ao obter cliente', erro: err}))
 };
 
 exports.post = (req, res, next) => {
@@ -23,7 +23,7 @@ exports.post = (req, res, next) => {
     dbCliente.create(reqCliente)
         .then((cliente) => {
             res.status(200).send(cliente);
-        }).catch(err => res.status(500).send(err))
+        }).catch(err => res.status(500).send({message: 'Erro ao inserir novo cliente', erro: err}))
 };
 
 exports.put = (req, res, next) => {
@@ -41,13 +41,13 @@ exports.put = (req, res, next) => {
     dbCliente.findByIdAndUpdate(req.params.id, updatedCliente, { new: true })
         .then((cliente) => {
             res.status(201).send(cliente);
-        }).catch(err => res.status(500).send(err))
+        }).catch(err => res.status(500).send({message: 'Erro ao atualizar cliente', erro: err}))
 };
 
 exports.delete = (req, res, next) => {
 
     dbCliente.findByIdAndRemove(req.params.id).then((person) => {
         res.status(200).send({msg: 'Apagado com sucesso!'});
-    }).catch(err => console.error.bind(console, `Error ${err}`))
+    }).catch(err => res.status(500).send({message: 'Erro ao excluir cliente', erro: err}))
 
 };
